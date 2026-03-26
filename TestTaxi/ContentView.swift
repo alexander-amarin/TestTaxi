@@ -163,7 +163,7 @@ struct LoadingView: View {
 enum MenuDestination: String, CaseIterable, Identifiable {
     case map = "Карта"
     case list = "Список"
-    case info = "Інформація"
+    case info = "Информация"
 
     var id: String { rawValue }
 
@@ -1144,7 +1144,7 @@ struct SideMenuView: View {
                     .frame(width: 56, height: 56)
                 Text("TestTaxi")
                     .font(.title3.weight(.bold))
-                Text("Швидкий доступ до мапи, геоданих та списку.")
+                Text("Быстрый доступ к карте, геоданных и списка.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
@@ -1227,7 +1227,7 @@ final class PhotosViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: url)
             items = try JSONDecoder().decode([PhotoItem].self, from: data)
         } catch {
-            errorMessage = "Не вдалося завантажити список."
+            errorMessage = "Не удалось загрузить список."
         }
     }
 }
@@ -1238,7 +1238,7 @@ struct PhotosListView: View {
     var body: some View {
         Group {
             if viewModel.isLoading && viewModel.items.isEmpty {
-                ProgressView("Завантаження...")
+                ProgressView("Загрузка...")
             } else if let errorMessage = viewModel.errorMessage, viewModel.items.isEmpty {
                 Text(errorMessage)
                     .foregroundStyle(.secondary)
