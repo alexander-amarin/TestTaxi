@@ -1238,7 +1238,7 @@ struct PhotosListView: View {
     var body: some View {
         Group {
             if viewModel.isLoading && viewModel.items.isEmpty {
-                ProgressView("Загрузка..")
+                ProgressView("Загрузка...")
             } else if let errorMessage = viewModel.errorMessage, viewModel.items.isEmpty {
                 Text(errorMessage)
                     .foregroundStyle(.secondary)
